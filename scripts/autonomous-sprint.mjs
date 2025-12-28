@@ -11,7 +11,30 @@ if (!API_KEY) {
 }
 
 const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+
+async function listAvailableModels() {
+    console.log("--- Diagnostic: Listing Available Models ---");
+    try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${API_KEY}`);
+        const data = await response.json();
+        if (data.models) {
+            console.log("Available Models:");
+            data.models.forEach(m => console.log(`- ${m.name}`));
+        } else {
+            console.log("No models found in the listing response.", JSON.stringify(data));
+        }
+    } catch (e) {
+        console.error("Diagnostic: Failed to fetch model list.", e.message);
+    }
+    console.log("------------------------------------------");
+}
+
+let model;
+try {
+    model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-002" });
+} catch (e) {
+    console.error("Error initializing model:", e.message);
+}
 
 function getNextTask() {
     const content = fs.readFileSync(BACKLOG_PATH, 'utf-8');
@@ -119,6 +142,7 @@ async function runSprint() {
             }
         } catch (error) {
             console.error("Error during AI code generation:", error);
+            await listAvailableModels();
         }
     } else {
         console.log('No uncompleted tasks found in BACKLOG.md');
