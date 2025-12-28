@@ -29,12 +29,7 @@ async function listAvailableModels() {
     console.log("------------------------------------------");
 }
 
-let model;
-try {
-    model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-002" });
-} catch (e) {
-    console.error("Error initializing model:", e.message);
-}
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 function getNextTask() {
     const content = fs.readFileSync(BACKLOG_PATH, 'utf-8');
