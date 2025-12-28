@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Productive App
 
-## Getting Started
+A high-quality, production-ready productivity application built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## 🚀 Vision
+Productive is designed for senior engineers and product leaders who demand precision, speed, and clean architecture. It's more than just a tool; it's a shippableincrement of excellence.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠 Tech Stack
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Testing**: [Vitest](https://vitest.dev/) + React Testing Library
+- **Icons**: [Lucide React](https://lucide-react.dev/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗 Architecture
+The project follows **Clean Architecture** combined with **Atomic Design** principles:
+- `src/app`: Next.js routes and layouts.
+- `src/components`: UI components (Atoms, Molecules, Organisms).
+- `src/modules`: Feature-specific business logic and types.
+- `src/lib`: Shared utilities and configurations.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📅 Roadmap
+- [x] Initial Repository Setup (Next.js 15, TS, Vitest)
+- [x] Design System & Base Layout
+- [x] Dashboard Landing Page
+- [ ] Authentication (OAuth2)
+- [ ] Real-time Task Management
+- [ ] Insightful Analytics Dashboard
+- [ ] Dark Mode Persistence
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚦 Getting Started
+1. Clone the repository.
+2. Install dependencies: `npm install`
+3. Run dev server: `npm run dev`
+4. Run tests: `npm run test`
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Built with precision by Antigravity.*
