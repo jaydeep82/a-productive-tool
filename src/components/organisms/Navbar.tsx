@@ -3,27 +3,11 @@
 import Link from 'next/link';
 import { Button } from '@/components/atoms/Button';
 import { Sun, Moon, LayoutDashboard, Settings, User } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useTheme } from '@/lib/ThemeProvider';
 
 export function Navbar() {
-    const [isDark, setIsDark] = useState(false);
-
-    useEffect(() => {
-        const root = window.document.documentElement;
-        if (root.classList.contains('dark')) {
-            setIsDark(true);
-        }
-    }, []);
-
-    const toggleTheme = () => {
-        const root = window.document.documentElement;
-        if (isDark) {
-            root.classList.remove('dark');
-        } else {
-            root.classList.add('dark');
-        }
-        setIsDark(!isDark);
-    };
+    const { theme, toggleTheme } = useTheme();
+    const isDark = theme === 'dark';
 
     return (
         <header className="sticky top-0 z-50 w-full glass">
@@ -33,10 +17,12 @@ export function Navbar() {
                         Productive<span className="text-primary/50">.</span>
                     </Link>
                     <nav className="hidden md:flex items-center gap-1">
-                        <Button variant="ghost" className="gap-2">
-                            <LayoutDashboard size={18} />
-                            Dashboard
-                        </Button>
+                        <Link href="/dashboard">
+                            <Button variant="ghost" className="gap-2">
+                                <LayoutDashboard size={18} />
+                                Dashboard
+                            </Button>
+                        </Link>
                         <Button variant="ghost" className="gap-2">
                             <User size={18} />
                             Profile
