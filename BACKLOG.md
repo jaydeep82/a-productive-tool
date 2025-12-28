@@ -5,7 +5,7 @@ This file contains the list of features to be implemented automatically by the d
 ## Features
 
 - [x] **Accessibility Audit**: Implement ARIA labels and ensure keyboard navigation across all components.
-- [ ] **Performance Monitoring**: Integrate a lightweight performance monitoring utility to track page load times.
+- [x] **Performance Monitoring**: Integrate a lightweight performance monitoring utility to track page load times.
 - [ ] **Enhanced Analytics**: Add more detailed charts to the dashboard using a lightweight SVC library (e.g., Recharts or simple SVG).
 - [ ] **SEO Meta Tags dynamic update**: Implement dynamic meta tag generation for different routes.
 - [ ] **Skeleton Loaders**: Add skeleton loading states for the Dashboard widgets.

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/organisms/Navbar";
 import { ThemeProvider } from "@/lib/ThemeProvider";
+import { PerformanceMonitor } from "@/components/utilities/PerformanceMonitor"; // Import the monitoring utility
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,9 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        
+        {/* Performance Monitoring Utility: Runs side-effects only */}
+        <PerformanceMonitor />
         
         <ThemeProvider>
           <Navbar />
