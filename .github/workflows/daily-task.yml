@@ -1,0 +1,32 @@
+name: Daily Task Automation
+
+on:
+  schedule:
+    - cron: '55 23 * * *' # Runs at 23:55 UTC (approx midnight local depending on TZ)
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  auto-document:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to push changes
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for git log
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate Daily Report
+        run: node scripts/automate-daily-report.mjs
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: daily automation update [skip ci]"
+          file_pattern: 'CHANGELOG.md'
+          commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>

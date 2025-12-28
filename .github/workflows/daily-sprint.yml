@@ -1,0 +1,39 @@
+name: Autonomous Daily Sprint
+
+on:
+  schedule:
+    - cron: '30 0 * * *' # Runs at 00:30 UTC every day
+  workflow_dispatch:
+
+jobs:
+  sprint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Select and Implement Feature with Gemini
+        id: sprint_step
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          node scripts/autonomous-sprint.mjs
+          
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "feat: autonomous daily sprint by Gemini [skip ci]"
+          file_pattern: '.' # Track all changes made by AI
+          commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
