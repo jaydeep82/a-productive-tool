@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-12-28
 
 ### Added
+- feat: autonomous daily sprint by Gemini [skip ci]
+- feat: autonomous daily sprint by Gemini [skip ci]
+- fix: switch to gemini-flash-latest for stable free tier quota
+- fix: use verified gemini-2.0-flash model identifier
+- fix(sprint): use stable model version and add diagnostic logging
+- fix: use gemini-1.5-flash-latest alias for better stability
+- feat: implement autonomous daily feature sprints and documentation
+- feat: persistent dark mode and analytics dashboard shell
+- feat: initial project structure with Next.js 15, Clean Architecture, and Vitest
+- Initial commit from Create Next App
 - feat: persistent dark mode and analytics dashboard shell
 - feat: initial project structure with Next.js 15, Clean Architecture, and Vitest
 - Initial commit from Create Next App
