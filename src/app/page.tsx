@@ -1,5 +1,6 @@
 import { Button } from "@/components/atoms/Button";
 import { ArrowRight, Zap, Shield, BarChart3 } from "lucide-react";
+import { AnalyticsDashboard } from "@/components/organisms/AnalyticsDashboard"; // NEW IMPORT
 
 export default function Home() {
   return (
@@ -52,6 +53,9 @@ export default function Home() {
           description="Track your productivity with clean, actionable data visualizations."
         />
       </section>
+
+      {/* Enhanced Analytics Dashboard */}
+      <AnalyticsDashboard />
     </div>
   );
 }
