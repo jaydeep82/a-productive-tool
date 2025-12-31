@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/organisms/Navbar";
 import { ThemeProvider } from "@/lib/ThemeProvider";
 import Meta from '@/components/atoms/Meta';
+import Toast from '@/components/atoms/Toast';
+import CommandPalette from '@/components/atoms/CommandPalette';
 import { PerformanceMonitor } from "@/components/utilities/PerformanceMonitor"; // Import the monitoring utility
 
 const inter = Inter({ subsets: ["latin"] });
@@ -40,6 +42,8 @@ export default function RootLayout({
 
         {/* Performance Monitoring Utility: Runs side-effects only */}
         <PerformanceMonitor />
+        <Toast />
+        <CommandPalette />
 
         <ThemeProvider>
           <Navbar />
