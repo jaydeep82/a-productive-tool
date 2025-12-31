@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const BACKLOG_PATH = path.resolve(process.cwd(), 'BACKLOG.md');
 const API_KEY = process.env.GEMINI_API_KEY;
